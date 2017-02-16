@@ -12,18 +12,16 @@ public class ReadingAPI {
         StringBuilder sb = new StringBuilder();
         try{
             URL url = new URL(link);
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-        String line;
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        br.close();}
-        catch(Exception e){
-            e.printStackTrace();
-        }
+            BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+            }
+            br.close();
+        }catch(Exception e){
+                e.printStackTrace();
+            }
         return sb.toString();
-
     }
 }
 

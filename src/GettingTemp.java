@@ -36,7 +36,6 @@ public class GettingTemp {
             }
         }
         actualTemperature.put(key,value);
-
     }
 
     private void gettingFutureTemperature(){
@@ -56,15 +55,7 @@ public class GettingTemp {
                     value = Double.parseDouble(arrayCutingByColon[2]);
                     futureTemperature.put(key, value);
                 }
-
             }
         }
-
-
     }
-
-
-
-
-
 }
