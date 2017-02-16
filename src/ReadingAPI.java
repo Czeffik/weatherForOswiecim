@@ -3,7 +3,10 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class ReadingAPI {
-    private String link = "http://api.openweathermap.org/data/2.5/forecast?q=Oswiecim,pol&APPID=71ad073f87383bd799851e6388bfcc8a";
+    private String link;
+    public ReadingAPI(String link){
+        this.link = link;
+    }
 
     public String reading() {
         StringBuilder sb = new StringBuilder();

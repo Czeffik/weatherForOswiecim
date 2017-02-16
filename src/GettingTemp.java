@@ -3,8 +3,10 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class GettingTemp {
-    private String apiNow = (new ReadingAPIWeatherNow()).reading();
-    private String apiFuture = (new ReadingAPI()).reading();
+    private String linkFuture = "http://api.openweathermap.org/data/2.5/forecast?q=Oswiecim,pol&APPID=71ad073f87383bd799851e6388bfcc8a";
+    private String linkNow = "http://api.openweathermap.org/data/2.5/weather?q=Oswiecim,pol&APPID=71ad073f87383bd799851e6388bfcc8a";
+    private String apiNow = (new ReadingAPI(linkNow)).reading();
+    private String apiFuture = (new ReadingAPI(linkFuture)).reading();
     private LinkedList<String> listOfWords = new LinkedList<>();
     private Map<Integer, Double> actualTemperature=new HashMap<>();
     private Map<Integer, Double> futureTemperature = new HashMap<>();
