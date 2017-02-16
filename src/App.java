@@ -13,6 +13,10 @@ public class App {
         System.out.println(nowy.getFutureTemperature());
 //        System.out.println(nowy.getFutureTemperature().get(1487203200));
 
+        for(int key: nowy.getFutureTemperature().keySet()){
+            System.out.println(key);
+        }
+
 
 
 

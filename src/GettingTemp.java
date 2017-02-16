@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -9,7 +10,7 @@ public class GettingTemp {
     private String apiFuture = (new ReadingAPI(linkFuture)).reading();
     private LinkedList<String> listOfWords = new LinkedList<>();
     private Map<Integer, Double> actualTemperature=new HashMap<>();
-    private Map<Integer, Double> futureTemperature = new HashMap<>();
+    private Map<Integer, Double> futureTemperature = new LinkedHashMap<>();
 
     public Map<Integer, Double> getActualTemperature() {
         this.gettingActualTemperature();
