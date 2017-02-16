@@ -1,24 +1,19 @@
 public class App {
 
     public static void main(String[] args) {
-//        ReadingAPI api = new ReadingAPI();
-//        ReadingAPIWeatherNow apiNow = new ReadingAPIWeatherNow();
-//        System.out.println(api.reading());
-//        System.out.println(apiNow.reading());
 
+//        GettingTemp nowy = new GettingTemp();
+//
+//        System.out.println(nowy.getActualTemperature());
+//        System.out.println(nowy.getFutureTemperature());
+//
+//        System.out.println(nowy.getFutureTemperature().size());
 
-        GettingTemp nowy = new GettingTemp();
+//        ReadingFile nowy = new ReadingFile();
+//        nowy.getMapMap();
 
-        System.out.println(nowy.getActualTemperature());
-        System.out.println(nowy.getFutureTemperature());
-//        System.out.println(nowy.getFutureTemperature().get(1487203200));
-
-        for(int key: nowy.getFutureTemperature().keySet()){
-            System.out.println(key);
-        }
-
-
-
+        DoingMath nowy = new DoingMath();
+        nowy.getDifferenceBetweenForecastAndActualTemp();
 
 
 
@@ -26,5 +21,4 @@ public class App {
 
 
     }
-
 }
