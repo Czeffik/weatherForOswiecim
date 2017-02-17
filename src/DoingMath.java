@@ -1,43 +1,41 @@
+import javafx.util.Pair;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class DoingMath {
-    private Map<Map<Integer, Double>, Map<Integer, Double>> collectedData = new ReadingFile().getMapMap();
     private Map<Integer, Map<Integer, Double>> differenceBetweenForecastAndActualTemp = new LinkedHashMap<>();
-    private int i;
 
     public Map<Integer, Map<Integer, Double>> getDifferenceBetweenForecastAndActualTemp() {
-        this.doingMath();
         return differenceBetweenForecastAndActualTemp;
     }
 
-    private void doingMath() {
-        Map<Integer,Double> timeAndDifference;
+    public DoingMath() {
+        Map<Pair<Integer, Double>, Map<Integer, Double>> collectedData = new ReadingFile().getMapMap();
+        Map<Integer, Double> timeAndDifference;
+
+        int i = 0;
         int keyToDifference;
         double valueToDifference;
-        for (Map key: collectedData.keySet()){
-            for(Object keyActualTemp: key.keySet()) {
-                timeAndDifference = new LinkedHashMap<>();
-                for (Map key1 : collectedData.keySet()) {
-                    for (Object keyFutureTemp : collectedData.get(key1).keySet()) {
-                        for (Object keyActualTime : key1.keySet()) {
-                            i=(int)keyActualTemp;
-                            if (keyActualTemp.equals(keyFutureTemp)) {
 
-                                keyToDifference = ((int)keyActualTemp-(int)keyActualTime)/3600;
-                                valueToDifference = (double)key.get(keyActualTemp) - (double)collectedData.get(key1).get(keyActualTemp);
-                                timeAndDifference.put(keyToDifference,valueToDifference);
+        for (Pair actualValuePair : collectedData.keySet()) {
+            timeAndDifference = new LinkedHashMap<>();
+            for (Pair actualOtherValuePair : collectedData.keySet()) {
+                for (int futureValueMapKey : collectedData.get(actualOtherValuePair).keySet()) {
+                    i = (int) actualValuePair.getKey();
+                    if (i == futureValueMapKey) {
+                        keyToDifference = (i - (int)actualOtherValuePair.getKey() ) / 3600;
+                        valueToDifference = (double) actualValuePair.getValue() - collectedData.get(actualOtherValuePair).get(futureValueMapKey);
+                        timeAndDifference.put(keyToDifference, valueToDifference);
 
-                            }
-                        }
                     }
                 }
-                if(timeAndDifference.size()>0) {
+                if (timeAndDifference.size() > 0) {
                     differenceBetweenForecastAndActualTemp.put(i, timeAndDifference);
                 }
             }
         }
-        System.out.println(differenceBetweenForecastAndActualTemp);
+//        System.out.println(differenceBetweenForecastAndActualTemp);
     }
 }
 

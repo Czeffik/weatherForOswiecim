@@ -41,8 +41,7 @@ public class GettingTemp {
     }
 
     private void gettingFutureTemperature(){
-        String[] arrayToList = apiFuture.split("\"list\":\\[\\{");
-        String[] arrayCutingByDt = arrayToList[1].split("\"dt\":");
+        String[] arrayCutingByDt = apiFuture.split("\"list\":\\[\\{")[1].split("\"dt\":");
         int key=0;
         double value;
         for (String sth : arrayCutingByDt){
